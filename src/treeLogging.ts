@@ -21,7 +21,19 @@ export function logAllPeopleInTree(topPerson: Person): void {
 
 export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
     console.log("TODO!  First person is " + topPerson.name);
+    const workStack:Person[] = [];
+    workStack.push(topPerson);
 
+    while (workStack.length>0){
+        let currentPerson:Person|undefined = workStack.pop();
+        if (!currentPerson){
+            throw new Error('Pop unexpectedly returned undefined.');
+        }
+        console.log(currentPerson.name);
+
+        currentPerson.children.forEach(ele => {workStack.unshift(ele)});
+
+    }
 }
 
 /*
