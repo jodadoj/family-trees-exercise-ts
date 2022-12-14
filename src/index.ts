@@ -3,7 +3,12 @@ import { createBritishSuccessionTree } from "./families/britain";
 import { createLannisterTree } from "./families/lannister";
 import { createStarkTree } from "./families/stark";
 // import { logAllPeopleInTree, logAllPeopleInTreeWithQueue } from "./solutions/solution";
-import { logAllPeopleInTree, logAllPeopleInTreeWithQueue } from "./treeLogging";
+import {
+  isDescedent,
+  logAllPeopleInTree,
+  logAllPeopleInTreeWithQueue,
+  logIfInTree,
+} from "./treeLogging";
 import { printBanner } from "./utils/bannerUtils";
 import { printPersonTreeAsAscii } from "./utils/toAsciiTree";
 
@@ -19,11 +24,12 @@ async function mainProgram() {
   // printBanner("LANNISTER");
   // printPersonTreeAsAscii(createLannisterTree());
 
-   printBanner("All people in STARK")
-   logAllPeopleInTree(createStarkTree());
-   printBanner("All people in STARK")
-   logAllPeopleInTreeWithQueue(createStarkTree());
-
+  //printBanner("All people in STARK");
+  //logAllPeopleInTree(createStarkTree());
+  //printBanner("All people in STARK");
+  //console.log(logAllPeopleInTreeWithQueue(createStarkTree()));
+  //logIfInTree("Arya", createStarkTree());
+  console.log(isDescedent("Jon", "Benjen", createStarkTree()));
   // printBanner("WITH STACK - british royals")
   // logAllPeopleInTree(createBritishSuccessionTree());
   // printBanner("WITH QUEUE - british royals")
